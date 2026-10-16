@@ -45,3 +45,36 @@ const bookStore = {
 
 // Write your code here!
 
+// 1. Select and change the header
+const header = document.querySelector("#header");
+header.textContent = bookStore.name;
+
+// 2. Select the element that will contain all the books
+const bookList = document.querySelector("#book-list");
+
+// 3. Loop through the books
+bookStore.books.forEach(function (book) {
+    // Create the book container
+    const bookContainer = document.createElement("div");
+
+    // Create the title
+    const bookTitle = document.createElement("h2");
+    bookTitle.textContent = book.title;
+
+    // Create the author
+    const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = book.author;
+
+    // Create the image
+    const bookImage = document.createElement("img");
+    bookImage.src = book.imageUrl;
+    bookImage.alt = book.title;
+
+    // Add the elements to the book container
+    bookContainer.appendChild(bookTitle);
+    bookContainer.appendChild(bookAuthor);
+    bookContainer.appendChild(bookImage);
+
+    // Add the book container to the page
+    bookList.appendChild(bookContainer);
+});
